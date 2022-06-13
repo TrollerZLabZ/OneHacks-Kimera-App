@@ -9,7 +9,8 @@ from tkmacosx import ColorVar
 from datetime import datetime
 
 def fileName():
-    return datetime.now().strftime("%Y-%m-%d.%H:%M:%S")
+    # I'm using U+A789 instead of the colon since it can't be used in a filename
+    return datetime.now().strftime("%Y-%m-%d.%H:%M:%S").replace(":", "\uA789")
 
 
 window = Tk()
@@ -58,17 +59,18 @@ def flipImage():
         return
 
 def saveImage(top, photoFrame, i):
-    i.save("{}.png".format(fileName()))
+    i.save("Polaroid {}.png".format(fileName()))
     print("Saved")
 
 def captureImage():
     global window
     top = Toplevel(window)
-    top.geometry("600x600")
+    top.geometry("525x620")
     top.title("Photo")
+    top.configure(background='#f0eded')
     
-    photoFrame = Label(top, height=500)
-    photoFrame.place(relx=0.5, rely=0.5, anchor=CENTER)
+    photoFrame = Label(top, height=525, width=475)
+    photoFrame.place(relx=0.5, rely=0.46, anchor=CENTER)
     
     image=camera.read()[1]
     livevid = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -91,7 +93,7 @@ def captureImage():
     photoFrame.configure(image=tkimage)
 
     save = tkm.Button(top, text = "Save Photo", command = lambda:saveImage(top, photoFrame, i), borderless=True)
-    save.place(relx=0.5, rely=0.95, anchor=CENTER)
+    save.place(relx=0.85, rely=0.95, anchor=CENTER)
     
 # Default Camera
 def video():
