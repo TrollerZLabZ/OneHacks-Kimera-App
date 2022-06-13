@@ -16,13 +16,6 @@ def fileName():
 window = Tk()
 window.title("Kimera")
 window.geometry("600x600")
-# def resize(owo):
-#     print("Resize")
-#     global capture
-#     # Change the height of capture to 5/6 of the window height
-#     capture.configure(height=window.winfo_height())
-    
-# window.bind('<Configure>', resize)
 global filter
 filter = cv2.COLOR_BGR2RGB
 global flipBool
@@ -116,7 +109,8 @@ def video():
 
     capture.imgtk=tkimage
     capture.configure(image=tkimage)
-    capture.after(15, video)
+    # set 7 to 5, 5 to 7, etc. to change the frame rate of the video
+    capture.after(7, video)
 
 def resetFilter():
     if CheckVar1.get() == 1:
