@@ -18,3 +18,9 @@ We were able to create a tint selector and applier with a hex color slider, whic
 We learned that hackathons are a great experience, and a great way to share your skill, develop your passion for coding, and grow your skill. This was our entire team's first hackathon, and I'm sure that we will attend many more, if it's in the same team or alone.
 ## What's next for Kimera App
 We look forward to improving the GUI of the application, diversifying the amount of filters, and even adding a gallery for the app. We will also be compiling the code to make use easier. A more "official" release is also one of our goals.
+<hr>
+
+### Contributors
+- Alex (TrollerZLabZ)
+- Noel (Noellikecode)
+- Abhay (darkmatter684)
